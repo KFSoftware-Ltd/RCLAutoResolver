@@ -1,4 +1,4 @@
-![.NET](https://github.com/KFSoftware-Ltd/RCLAutoResolver/workflows/.NET/badge.svg)
+![Build](https://github.com/KFSoftware-Ltd/RCLAutoResolver/workflows/.NET/badge.svg)
 
 
 # RCLAutoResolver
