@@ -15,9 +15,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
+      uses: nuget/setup-nuget@v1
       with:
         dotnet-version: 5.0.100
+        nuget-api-key: ${{ secrets.NUGET_TOKEN }}
+        nuget-version: '5.x'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - name: Sign Package
+      run: echo Test
