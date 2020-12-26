@@ -1,15 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
 		<PackageId>KFSoftware.RCLAutoResolver</PackageId>
-		<Version>1.0.0</Version>
+		<VersionSuffix>1.0.0.$([System.DateTime]::UtcNow.ToString(mmff))</VersionSuffix>
+		<AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.0.0.1</AssemblyVersion>
+		<AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+		<Version Condition=" '$(VersionSuffix)' == '' ">0.0.1.0</Version>
+		<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
 		<Authors>Kieran Foot</Authors>
 		<Company>KFSoftware Ltd</Company>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Copyright>Copyright © KFSoftware Ltd 2020</Copyright>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
