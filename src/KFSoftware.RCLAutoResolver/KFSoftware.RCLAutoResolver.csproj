@@ -10,11 +10,12 @@
 		<Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
 		<Authors>Kieran Foot</Authors>
 		<Company>KFSoftware Ltd</Company>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<Copyright>Copyright © KFSoftware Ltd 2020</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
