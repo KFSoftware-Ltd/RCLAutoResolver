@@ -14,7 +14,7 @@ namespace KFSoftware.RCLAutoResolver
         /// Adds an <see cref="IFileProvider">FileProvider</see> to search Razor Class Libraries for static files.
         /// </summary>
         /// <param name="assemblies">A list of assemblies to search for the requested static file.</param>
-        public static IApplicationBuilder UseRazorLibraryResolver(this IApplicationBuilder app, params Assembly[] assemblies)
+        public static IApplicationBuilder UseRCLAutoResolver(this IApplicationBuilder app, params Assembly[] assemblies)
         {
             if (assemblies is null)
             {
@@ -25,7 +25,7 @@ namespace KFSoftware.RCLAutoResolver
             {
                 IWebHostEnvironment env = scope.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
                 ILoggerFactory loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
-                IFileProvider provider = new CompositeFileProvider(new RazorLibraryFileProvider(loggerFactory.CreateLogger<RazorLibraryFileProvider>(), env.WebRootFileProvider, assemblies), env.WebRootFileProvider);
+                IFileProvider provider = new CompositeFileProvider(new RazorClassLibraryFileProvider(loggerFactory.CreateLogger<RazorClassLibraryFileProvider>(), env.WebRootFileProvider, assemblies), env.WebRootFileProvider);
                 env.WebRootFileProvider = provider;
             }
             return app;
